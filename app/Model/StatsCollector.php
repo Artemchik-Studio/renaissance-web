@@ -68,11 +68,8 @@ class StatsCollector
             $client = $mClient[1] ?? 'Неизвестный клиент';
             $version = $mVer[1] ?? 'неизвестна';
 
-            $build = null;
-            if ($client != 'magent') {
-                preg_match('/build="([0-9]+)"/', $ua, $mBuild);
-                $build = $mBuild[1] ?? null;
-            }
+            preg_match('/build="([0-9]+)"/', $ua, $mBuild);
+            $build = $mBuild[1] ?? null;
 
             $verKey = $version;
 
