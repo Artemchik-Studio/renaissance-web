@@ -53,7 +53,7 @@
                     День рождения:
                 </td>
                 <td>
-                    <input type="date" name="birthday" value="{Nette\Utils\DateTime::from($user_data->birthday)->format('Y-m-d')}">
+                    <input type="date" name="birthday" value="{Nette\Utils\DateTime::from($user_data->birthday)->format('Y-m-d')}" placeholder="Формат ГГГГ-ММ-ДД">
                 </td>
             </tr>
             <tr>
@@ -66,7 +66,7 @@
             </tr>
             <tr>
                 <td>
-                    Месторасположение:
+                    Месторасположение (не обязательно):
                 </td>
                 <td>
                     <input type="text" name="place" value="{$user_data->location}">

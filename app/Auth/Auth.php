@@ -59,7 +59,7 @@ final class Auth implements IAuthenticator
     {
         [$name, $surname, $real_email, $username, $domain, $sex, $birthday, $nickname, $place] = $args;
         // проверка полей, не пусты ли они
-        foreach([$name, $surname, $real_email, $username, $nickname, $place] as $value){
+        foreach([$name, $surname, $real_email, $username, $nickname] as $value){
             if(Validators::is($value, 'none'))
                 throw new AuthenticationException("Не все поля заполнены");
         }
