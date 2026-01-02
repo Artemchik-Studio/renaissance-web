@@ -101,6 +101,27 @@ final class Auth implements IAuthenticator
             "birthday" => $birthday,
             "sex" => $sex
         ]);
+
+        $this->db->table("contact_group")->insert([
+            "user_id" => $query->id,
+            "name" => "Остальные",
+            "idx" => '0'
+        ]);
+        $this->db->table("contact_group")->insert([
+            "user_id" => $query->id,
+            "name" => "Родные",
+            "idx" => '1'
+        ]);
+        $this->db->table("contact_group")->insert([
+            "user_id" => $query->id,
+            "name" => "Друзья",
+            "idx" => '2'
+        ]);
+        $this->db->table("contact_group")->insert([
+            "user_id" => $query->id,
+            "name" => "Коллеги",
+            "idx" => '3'
+        ]);
         // верифка по почте
         $code = Nette\Utils\Random::generate(72);
         (new Emails())->send($_SERVER['DOCUMENT_ROOT']."/../app/Emails/email_verification.latte", $real_email, ["nickname" => $nickname, "code" => $code, "host" => (empty($_SERVER['HTTPS']) ? 'http' : 'https')."://$_SERVER[HTTP_HOST]/"]);
